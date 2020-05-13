@@ -7,24 +7,22 @@
     "test": "sh -c 'env REPO_URL=$0 npx mocha tests/**/*.spec.js -R JSON --exit'",
     "test-local": "./node_modules/.bin/mocha tests/**/*.spec.js --exit -R JSON",
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "build-front": "cd client | ls",
     "feedback": "node ./feedback/index.js",
     "generate": "npm run test-local | npm run feedback"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DmitrijDN/nodejs-2020-private.git"
+    "url": "git+https://github.com/s1oux/browser-fighter-extended.git"
   },
   "keywords": [
     "NodeJS",
     "expressJS"
   ],
-  "author": "Dmitriy Beseda",
+  "author": "andrew",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/DmitrijDN/nodejs-2020-private/issues"
-  },
-  "homepage": "https://github.com/DmitrijDN/nodejs-2020-private#readme",
+  "homepage": "https://github.com/s1oux/browser-fighter-extended#readme",
   "dependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
