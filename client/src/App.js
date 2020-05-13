@@ -1,12 +1,22 @@
 import React from 'react';
-import StartScreen from './components/startScreen'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import StartScreen from './components/startScreen';
+import {
+  ThemeProvider as MuiThemeProvider,
+  createMuiTheme,
+} from '@material-ui/core/styles';
+import { blue } from '@material-ui/core/colors';
+
 import './App.css';
 
-function App() {
+const theme = createMuiTheme({
+  palette: {
+    primary: blue,
+  },
+});
 
+function App() {
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider theme={theme}>
       <StartScreen />
     </MuiThemeProvider>
   );
