@@ -1,18 +1,46 @@
 const { Router } = require('express');
+
 const AuthService = require('../services/authService');
+const {
+  loginUserValid,
+} = require('../middlewares/login.validation.middleware');
 const { responseMiddleware } = require('../middlewares/response.middleware');
 
 const router = Router();
 
-router.post('/login', (req, res, next) => {
+// login route works
+// TODO: must find out how to implement responseMiddleware
+// + add jwt??
+
+router.post(
+  '/login',
+  loginUserValid,
+  (req, res, next) => {
     try {
-        // TODO: Implement login action
-        res.data = data;
+      const email = req.body.email;
+      const password = req.body.password;
+      const user = AuthService.login({ email });
+      if (!user) {
+        res.status(401).send({
+          error: true,
+          message: 'Credentials are invalid',
+        });
+      }
+      if (password === user.password) {
+        res.json(user);
+      } else {
+        res.status(401).json({
+          error: true,
+          message: 'Credentials are invalid',
+        });
+      }
     } catch (err) {
-        res.err = err;
+      res.err = err;
     } finally {
-        next();
+      next();
     }
-}, responseMiddleware);
+  },
+  responseMiddleware
+);
 
 module.exports = router;
