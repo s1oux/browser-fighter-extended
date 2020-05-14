@@ -10,9 +10,9 @@ class Fighter {
 // exports.fighter = {
 //   id: Number, // fighterID
 //   name: String, // fighterName
-//   health: Number, // fighterHealth
-//   power: Number, // fighterPower
-//   defense: Number, // add defense ??
+//   health: Number, // fighterHealth 100
+//   power: Number, // fighterPower < 100
+//   defense: Number, // fighterDefense => 1 to 10
 // };
 
 module.exports.Fighter = Fighter;

@@ -34,10 +34,11 @@ const validateFighterInput = (data) => {
   }
 
   if (
-    !Validator.isAtLeast(data.power, 1) ||
-    !Validator.isLessThan(data.power, 10)
+    /*!Validator.isAtLeast(data.power, 1) ||*/
+    !Validator.isLessThan(data.power, 101)
   ) {
-    errors.power = 'Power paremeter should be in range [1, 9]';
+    // errors.power = 'Power paremeter should be in range [1, 9]';
+    errors.power = 'Power paremeter should be less than 100';
   }
 
   if (!Validator.isNumber(data.power)) {
@@ -50,9 +51,9 @@ const validateFighterInput = (data) => {
 
   if (
     !Validator.isAtLeast(data.defense, 1) ||
-    !Validator.isLessThan(data.defense, 10)
+    !Validator.isLessThan(data.defense, 11)
   ) {
-    errors.defense = 'Defense paremeter should be in range [1, 9]';
+    errors.defense = 'Defense paremeter should be in range [1, 10]';
   }
 
   if (!Validator.isNumber(data.defense)) {
