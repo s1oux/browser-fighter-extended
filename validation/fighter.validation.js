@@ -5,9 +5,9 @@ const validateFighterInput = (data) => {
   let errors = {};
 
   data.name = !isEmpty(data.name) ? data.name : '';
-  data.health = !isEmpty(data.health) ? data.health : '';
-  data.power = !isEmpty(data.power) ? data.power : '';
-  data.defense = !isEmpty(data.defense) ? data.defense : '';
+  data.health = !isEmpty(data.health.toString()) ? data.health : '';
+  data.power = !isEmpty(data.power.toString()) ? data.power : '';
+  data.defense = !isEmpty(data.defense.toString()) ? data.defense : '';
 
   if (!Validator.containOnlyNecessaryFields(data, 4)) {
     errors.fields = 'Should contain only necessary fields';
