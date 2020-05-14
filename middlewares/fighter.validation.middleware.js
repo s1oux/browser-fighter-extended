@@ -1,5 +1,6 @@
 // const { fighter } = require('../models/fighter');
 const { validateFighterInput } = require('../validation/fighter.validation');
+const { getObjectValuesAsString } = require('../services/objectValues');
 
 const createFighterValid = (req, res, next) => {
   // TODO: Implement validatior for fighter entity during creation
@@ -8,7 +9,7 @@ const createFighterValid = (req, res, next) => {
   if (!isValid) {
     return res.status(400).json({
       error: true,
-      message: errors,
+      message: getObjectValuesAsString(errors),
     });
   }
 
@@ -22,7 +23,7 @@ const updateFighterValid = (req, res, next) => {
   if (!isValid) {
     return res.status(400).json({
       error: true,
-      message: errors,
+      message: getObjectValuesAsString(errors),
     });
   }
 

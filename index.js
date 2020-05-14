@@ -14,8 +14,6 @@ routes(app);
 app.use('/', express.static('./client/build'));
 
 const port = process.env.PORT || 7721;
-app.listen(port, () => {
-  console.log(`server listening on ${port}`);
-});
+app.listen(port, () => {});
 
 exports.app = app;

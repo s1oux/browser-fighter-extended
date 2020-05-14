@@ -10,6 +10,10 @@ const validateUserInput = (data) => {
   data.phoneNumber = !isEmpty(data.phoneNumber) ? data.phoneNumber : '';
   data.password = !isEmpty(data.password) ? data.password : '';
 
+  if (!Validator.containOnlyNecessaryFields(data, 5)) {
+    errors.fields = 'Should contain only necessary fields';
+  }
+
   if (Validator.isEmpty(data.firstName)) {
     errors.firstName = 'First Name is required';
   }

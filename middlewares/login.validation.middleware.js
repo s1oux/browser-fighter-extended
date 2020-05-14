@@ -1,4 +1,5 @@
 const { validateLoginInput } = require('../validation/login.validation');
+const { getObjectValuesAsString } = require('../services/objectValues');
 
 const loginUserValid = (req, res, next) => {
   const { errors, isValid } = validateLoginInput(req.body);
@@ -6,7 +7,7 @@ const loginUserValid = (req, res, next) => {
   if (!isValid) {
     return res.status(400).json({
       error: true,
-      message: errors,
+      message: getObjectValuesAsString(errors),
     });
   }
 

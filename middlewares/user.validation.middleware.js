@@ -1,5 +1,6 @@
 // const { user } = require('../models/user');
 const { validateUserInput } = require('../validation/user.validation');
+const { getObjectValuesAsString } = require('../services/objectValues');
 
 const createUserValid = (req, res, next) => {
   // TODO: Implement validation for user entity during creation
@@ -8,7 +9,7 @@ const createUserValid = (req, res, next) => {
   if (!isValid) {
     return res.status(400).json({
       error: true,
-      message: errors,
+      message: getObjectValuesAsString(errors),
     });
   }
 
@@ -23,7 +24,7 @@ const updateUserValid = (req, res, next) => {
   if (!isValid) {
     return res.status(400).json({
       error: true,
-      message: errors,
+      message: getObjectValuesAsString(errors),
     });
   }
 

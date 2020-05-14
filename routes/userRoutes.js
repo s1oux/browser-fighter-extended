@@ -20,7 +20,10 @@ router.get('/', (req, res) => {
   if (users) {
     res.json(users);
   } else {
-    res.json(400).json('have no users');
+    res.json(400).json({
+      error: true,
+      message: 'No users in db',
+    });
   }
 });
 
@@ -32,7 +35,7 @@ router.get('/:id', (req, res) => {
   if (foundUser) {
     res.json(foundUser);
   } else {
-    res.status(404).json({ nouser: 'No user with such id' });
+    res.status(404).json({ error: true, message: 'No user with such id' });
   }
 });
 
@@ -44,7 +47,10 @@ router.post('/', createUserValid, (req, res) => {
   if (result) {
     res.json(result);
   } else {
-    res.status(400).json('error has occured');
+    res.status(400).json({
+      error: true,
+      message: 'Error has occured',
+    });
   }
 });
 
@@ -57,7 +63,7 @@ router.put('/:id', updateUserValid, (req, res) => {
   if (updatedUser) {
     res.json(updatedUser);
   } else {
-    res.status(404).json({ nouser: 'No user with such id' });
+    res.status(404).json({ error: true, message: 'No user with such id' });
   }
 });
 
@@ -69,7 +75,7 @@ router.delete('/:id', (req, res) => {
   if (deletedUser) {
     res.json(deletedUser);
   } else {
-    res.status(404).json({ nouser: 'No user with such id' });
+    res.status(404).json({ error: true, message: 'No user with such id' });
   }
 });
 

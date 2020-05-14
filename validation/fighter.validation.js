@@ -9,6 +9,10 @@ const validateFighterInput = (data) => {
   data.power = !isEmpty(data.power) ? data.power : '';
   data.defense = !isEmpty(data.defense) ? data.defense : '';
 
+  if (!Validator.containOnlyNecessaryFields(data, 4)) {
+    errors.fields = 'Should contain only necessary fields';
+  }
+
   if (Validator.isEmpty(data.name)) {
     errors.name = 'Fighter Name is required';
   }

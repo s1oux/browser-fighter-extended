@@ -20,7 +20,11 @@ class Validator {
   };
 
   isPhoneNumber = (value) => {
-    return /^\+?3?8?(0\d{9})$/g.test(value);
+    return /^\+380(\d{9})$/g.test(value);
+  };
+
+  containOnlyNecessaryFields = (object, count) => {
+    return Object.keys(object).length === count;
   };
 
   isLength = (value, { min, max }) => {

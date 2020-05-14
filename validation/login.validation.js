@@ -7,6 +7,10 @@ const validateLoginInput = (data) => {
   data.email = !isEmpty(data.email) ? data.email : '';
   data.password = !isEmpty(data.password) ? data.password : '';
 
+  if (!Validator.containOnlyNecessaryFields(data, 2)) {
+    errors.fields = 'Should contain only necessary fields';
+  }
+
   if (Validator.isEmpty(data.email)) {
     errors.email = 'Email is required';
   }
