@@ -4,9 +4,9 @@ import { Button, TextField } from '@material-ui/core';
 
 import { createFighter } from '../../services/domainRequest/fightersRequest';
 
-import './newFighter.css';
+import './fighterCreation.css';
 
-export default function NewFighter({ onCreated }) {
+export default function FighterCreation({ onCreated }) {
   const [name, setName] = useState();
   const [health, setHealth] = useState();
   const [power, setPower] = useState();
@@ -53,27 +53,27 @@ export default function NewFighter({ onCreated }) {
       <TextField
         onChange={onNameChange}
         id="name"
-        label="Required"
+        /*label="Required"*/
         placeholder="Name"
       />
       <TextField
         onChange={onPowerChange}
         id="power"
-        label="Required"
+        /*label="Required"*/
         placeholder="Power"
         type="number"
       />
       <TextField
         onChange={onDefenseChange}
         id="defense"
-        label="Required"
+        /*label="Required"*/
         placeholder="Defense"
         type="number"
       />
       <TextField
         onChange={onHealthChange}
         id="health"
-        label="Required"
+        /*label="Required"*/
         placeholder="Health"
         type="number"
       />
