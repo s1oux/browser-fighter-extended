@@ -1,8 +1,8 @@
-const express = require('express')
+const express = require('express');
 const cors = require('cors');
 require('./config/db');
 
-const app = express()
+const app = express();
 
 app.use(cors());
 app.use(express.json());
@@ -13,7 +13,7 @@ routes(app);
 
 app.use('/', express.static('./client/build'));
 
-const port = 3050;
+const port = process.env.PORT || 7721;
 app.listen(port, () => {});
 
 exports.app = app;
