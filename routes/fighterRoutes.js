@@ -55,7 +55,7 @@ router.post('/', createFighterValid, (req, res) => {
 // @desc Changes fighter details by id
 router.put('/:id', updateFighterValid, (req, res) => {
   const id = req.params.id;
-  const fighterInfo = req.body;
+  const fighterInfo = new Fighter(req.body);
   const updatedFighter = FighterService.update(id, fighterInfo);
   if (updatedFighter) {
     res.json(updatedFighter);
