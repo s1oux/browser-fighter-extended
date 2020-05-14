@@ -1,9 +1,5 @@
-#wrapper {
-  margin-top: 2rem;
-}
-
 #fight-wrapper {
-  width: 70%;
+  width: 60%;
   margin: 2rem auto;
   border: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
@@ -14,10 +10,12 @@
   flex: 1;
 }
 
-.btn-wrapper {
-  margin: 0 1rem;
+.wrapper {
   display: flex;
-  align-items: flex-start;
-  padding-top: 1rem;
+  align-items: center;
   justify-content: center;
+}
+
+.right img {
+  transform: scaleX(-1);
 }
