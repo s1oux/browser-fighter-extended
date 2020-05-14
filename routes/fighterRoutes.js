@@ -10,9 +10,6 @@ const {
 
 const router = Router();
 
-// All routes work
-// TODO: think how to implement response middleware
-
 // @route GET /api/fighters
 // @desc Returns all fighters in db
 router.get('/', (req, res) => {
@@ -20,7 +17,10 @@ router.get('/', (req, res) => {
   if (fighters) {
     res.json(fighters);
   } else {
-    res.json(400).json('have no fighters');
+    res.json(404).json({
+      error: true,
+      message: 'Have no fighters',
+    });
   }
 });
 
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
   if (foundFighter) {
     res.json(foundFighter);
   } else {
-    res.status(404).json({ nofighter: 'No fighter with such id' });
+    res.status(404).json({ error: true, message: 'No fighter with such id' });
   }
 });
 
@@ -44,7 +44,10 @@ router.post('/', createFighterValid, (req, res) => {
   if (result) {
     res.json(result);
   } else {
-    res.status(400).json('error has occured');
+    res.status(400).json({
+      error: true,
+      message: 'Non validation error',
+    });
   }
 });
 
@@ -57,7 +60,10 @@ router.put('/:id', updateFighterValid, (req, res) => {
   if (updatedFighter) {
     res.json(updatedFighter);
   } else {
-    res.status(404).json({ nofighter: 'No fighter with such id' });
+    res.status(404).json({
+      error: true,
+      message: 'No fighter with such id',
+    });
   }
 });
 
@@ -69,7 +75,10 @@ router.delete('/:id', (req, res) => {
   if (deletedFighter) {
     res.json(deletedFighter);
   } else {
-    res.status(404).json({ nofighter: 'No fighter with such id' });
+    res.status(404).json({
+      error: true,
+      message: 'No fighter with such id',
+    });
   }
 });
 

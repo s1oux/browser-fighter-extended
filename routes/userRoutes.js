@@ -10,9 +10,6 @@ const { responseMiddleware } = require('../middlewares/response.middleware');
 
 const router = Router();
 
-// All routes work
-// TODO: think how to implement response middleware
-
 // @route GET /api/users
 // @desc Returns all users in db
 router.get('/', (req, res) => {
@@ -35,7 +32,10 @@ router.get('/:id', (req, res) => {
   if (foundUser) {
     res.json(foundUser);
   } else {
-    res.status(404).json({ error: true, message: 'No user with such id' });
+    res.status(404).json({
+      error: true,
+      message: 'No user with such id',
+    });
   }
 });
 
@@ -63,7 +63,10 @@ router.put('/:id', updateUserValid, (req, res) => {
   if (updatedUser) {
     res.json(updatedUser);
   } else {
-    res.status(404).json({ error: true, message: 'No user with such id' });
+    res.status(404).json({
+      error: true,
+      message: 'No user with such id',
+    });
   }
 });
 
@@ -75,7 +78,10 @@ router.delete('/:id', (req, res) => {
   if (deletedUser) {
     res.json(deletedUser);
   } else {
-    res.status(404).json({ error: true, message: 'No user with such id' });
+    res.status(404).json({
+      error: true,
+      message: 'No user with such id',
+    });
   }
 });
 
