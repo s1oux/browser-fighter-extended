@@ -19,7 +19,7 @@ export default function NewFighter({ onCreated }) {
   const onPowerChange = (event) => {
     const value =
       event.target.value || event.target.value === 0
-        ? event.target.value
+        ? Number(event.target.value)
         : null;
     setPower(value);
   };
@@ -27,7 +27,7 @@ export default function NewFighter({ onCreated }) {
   const onDefenseChange = (event) => {
     const value =
       event.target.value || event.target.value === 0
-        ? event.target.value
+        ? Number(event.target.value)
         : null;
     setDefense(value);
   };
@@ -35,7 +35,7 @@ export default function NewFighter({ onCreated }) {
   const onHealthChange = (event) => {
     const value =
       event.target.value || event.target.value === 0
-        ? event.target.value
+        ? Number(event.target.value)
         : null;
     setHealth(value);
   };

@@ -58,7 +58,7 @@ class Fight extends React.Component {
     return (
       <div id="wrapper">
         <NewFighter onCreated={this.onCreate} />
-        <div id="figh-wrapper">
+        <div id="fight-wrapper">
           <Fighter
             selectedFighter={fighter1}
             onFighterSelect={this.onFighter1Select}
