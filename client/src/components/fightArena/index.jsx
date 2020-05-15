@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { createFight } from '../../services/domainRequest/fightRequest';
+import { getObjectFromLocalStorage } from '../../services/localStorageHelper';
 import { fight } from './fightingLogic/fightLogic';
 import Modal from '../modal';
 import HealthIndicator from '../healthIndicator';
@@ -16,9 +18,23 @@ class FightArena extends React.Component {
   }
 
   componentDidMount() {
-    fight(this.props.fighter1, this.props.fighter2).then((fighter) => {
+    const { fighter1, fighter2 } = this.props;
+    fight(fighter1, fighter2).then((fighter) => {
       this.setState({
         winner: fighter,
+      });
+      const winner = fighter;
+      const loser = fighter1.name !== winner.name ? fighter1 : fighter2;
+
+      const user = getObjectFromLocalStorage('user');
+
+      createFight({
+        userId: user.id,
+        winner: winner.name,
+        loser: loser.name,
+      }).then((data) => {
+        if (data && !data.error) {
+        }
       });
     });
   }
