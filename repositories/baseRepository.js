@@ -19,6 +19,10 @@ class BaseRepository {
     return this.dbContext.find(search).value();
   }
 
+  getMany(search) {
+    return this.dbContext.filter(search).value();
+  }
+
   create(data) {
     data.id = this.generateId();
     data.createdAt = new Date();
