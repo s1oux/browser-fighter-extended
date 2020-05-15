@@ -10,7 +10,8 @@
     "dev": "nodemon index.js",
     "build-front": "cd client | ls",
     "feedback": "node ./feedback/index.js",
-    "generate": "npm run test-local | npm run feedback"
+    "generate": "npm run test-local | npm run feedback",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
