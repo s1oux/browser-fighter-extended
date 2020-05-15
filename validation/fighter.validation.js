@@ -5,9 +5,9 @@ const validateFighterInput = (data) => {
   let errors = {};
 
   data.name = !isEmpty(data.name) ? data.name : '';
-  data.health = !isEmpty(data.health) ? data.health : '';
-  data.power = !isEmpty(data.power) ? data.power : '';
-  data.defense = !isEmpty(data.defense) ? data.defense : '';
+  data.health = !isEmpty(data.health.toString()) ? data.health : '';
+  data.power = !isEmpty(data.power.toString()) ? data.power : '';
+  data.defense = !isEmpty(data.defense.toString()) ? data.defense : '';
 
   if (!Validator.containOnlyNecessaryFields(data, 4)) {
     errors.fields = 'Should contain only necessary fields';
@@ -34,10 +34,11 @@ const validateFighterInput = (data) => {
   }
 
   if (
-    !Validator.isAtLeast(data.power, 1) ||
-    !Validator.isLessThan(data.power, 10)
+    /*!Validator.isAtLeast(data.power, 1) ||*/
+    !Validator.isLessThan(data.power, 101)
   ) {
-    errors.power = 'Power paremeter should be in range [1, 9]';
+    // errors.power = 'Power paremeter should be in range [1, 9]';
+    errors.power = 'Power paremeter should be less than 100';
   }
 
   if (!Validator.isNumber(data.power)) {
@@ -50,9 +51,9 @@ const validateFighterInput = (data) => {
 
   if (
     !Validator.isAtLeast(data.defense, 1) ||
-    !Validator.isLessThan(data.defense, 10)
+    !Validator.isLessThan(data.defense, 11)
   ) {
-    errors.defense = 'Defense paremeter should be in range [1, 9]';
+    errors.defense = 'Defense paremeter should be in range [1, 10]';
   }
 
   if (!Validator.isNumber(data.defense)) {

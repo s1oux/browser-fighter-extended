@@ -1,6 +1,6 @@
-import { unsetLoginSession } from '../../services/authService';
 import React from 'react';
-import './signOut.css';
+
+import { unsetLoginSession } from '../../services/authService';
 
 export default function SignOut({ isSignedIn, onSignOut }) {
   const signOut = () => {
@@ -9,11 +9,7 @@ export default function SignOut({ isSignedIn, onSignOut }) {
   };
 
   if (isSignedIn) {
-    return (
-      <div onClick={signOut} id="sign-out">
-        Sign out
-      </div>
-    );
+    return <div onClick={signOut}>Sign out</div>;
   }
 
   return null;

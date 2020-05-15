@@ -8,10 +8,6 @@ const { responseMiddleware } = require('../middlewares/response.middleware');
 
 const router = Router();
 
-// login route works
-// TODO: must find out how to implement responseMiddleware
-// + add jwt??
-
 router.post(
   '/login',
   loginUserValid,

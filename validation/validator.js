@@ -4,6 +4,7 @@ class Validator {
   };
 
   isNumber = (value) => {
+    if (typeof value === 'number') return true;
     return /^\d+$/g.test(value);
   };
 

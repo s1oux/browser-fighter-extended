@@ -1,0 +1,21 @@
+#fight-wrapper {
+  width: 60%;
+  margin: 2rem auto;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+#fight-wrapper > *:first-child,
+#fight-wrapper > *:last-child {
+  flex: 1;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right img {
+  transform: scaleX(-1);
+}
